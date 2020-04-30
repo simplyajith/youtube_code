@@ -66,3 +66,23 @@ v.push(778)
 print(v.peek())
 v.print_stack()
 
+# Reverse a word using stack
+w = Stack()
+
+w.push("b")
+w.push("l")
+w.push("u")
+w.push("e")
+
+top_w = w.top
+w_stack = w.stack
+x = ""
+
+for i in range(top_w,-1,-1):
+    x += w_stack[i]
+
+for _ in range(len(w_stack)):
+    x += w.pop()
+
+print(x)
+
