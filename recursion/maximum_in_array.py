@@ -8,14 +8,15 @@ else:
 
 """
 
-def maxi(idx,maximum,a,idx_element):
+def maxi(idx,maximum,a):
 
     if idx == len(a)-1:
         return max(a[idx],maximum)
     else:
         maximum = max(a[idx],maximum)
+        print(maximum)
         idx += 1
-        return maxi(idx,maximum,a,a[idx])
+        return maxi(idx,maximum,a)
 
 a = [100,2000,3,4,1,10,1001]
-print(maxi(0,-1234,a, a[0]))
+print(maxi(0,-1234,a))
