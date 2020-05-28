@@ -22,7 +22,6 @@ class Solution:
 		# -2+1, -1
 		localmax = -(math.inf)
 		windowsum = 0
-		globalmax = x[0]
 		end_window = 0
 		
 		while end_window < len(x):
