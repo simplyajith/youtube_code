@@ -35,3 +35,24 @@ class Solution:
 			end_window += 1
 		return localmax
 	
+
+#O(n**2) solution
+
+def maxsubarray_brute_force(arr):
+	maxi = -(math.inf)
+	for i in range(len(arr)):
+		tot = arr[i]
+		maxi = max(maxi,tot)
+		for j in range(i+1,len(arr)):
+			tot +=arr[j]
+			maxi = max(maxi, tot)
+	return maxi
+	
+	
+nums = [2,3,1,2,4,3]
+# nums = [1,3,2,1,-1]
+# nums = [-1,2,3,-4,5,10]
+# nums = [2,-1,2,3,4,-5]
+print(maxsubarray_brute_force(nums))
+print(Solution().maxSubArray(nums))
+	
