@@ -1,8 +1,24 @@
 """
 
 https://www.hackerrank.com/challenges/unbounded-knapsack/problem
+
+Reference:
+https://www.youtube.com/watch?v=aycn9KO8_Ls
+
+Algorithm:
+1) select the Same element.
+2) Don't select the same element.
+
+Only difference between 0/1 knapsack and unbounded knapsack is
+
+For unbounded knapsack, index value remains same even after selected.
+For 0/1 knapsack, index value decrease by 1, after selection.
+
 """
 
+
+
+#Hack for recursion error
 from sys import setrecursionlimit
 limit = 1000000
 setrecursionlimit(limit)
@@ -16,10 +32,9 @@ Find the max
 
 
 def unboundedKnapsack(k, arr):
+	
 	def knap(val, sum1, memo):
-		# print(val,sum1)
-		# print(memo)
-		
+
 		if sum1 > k:
 			return 0
 		
@@ -36,14 +51,11 @@ def unboundedKnapsack(k, arr):
 		else:
 			memo[val][sum1] = knap(val - 1, sum1, memo)
 			res.append(sum1)
-			# print(sum1)
 			return memo[val][sum1]
 	
 	res = []
 	n = len(arr)
-	# print(n)
 	memo = [["x" for _ in range(k + 1)] for _ in range(n + 1)]
-	# print(memo)
 	knap(n - 1, 0, memo)
 	return (max(res))
 
@@ -73,10 +85,10 @@ def unbounded_knapsack_r(arr,n, sum1,a_sum):
 	else:
 		return unbounded_knapsack_r(arr, n - 1, sum1,a_sum)
 	
-# arr = [3,7,9]
+
 arr=[2,3,4]
 n = len(arr)
-# print(unbounded_knapsack_r(arr,n-1,11,11))
+
 
 
 def unbounded_knapsack_memo(arr, n, sum1, memo):
